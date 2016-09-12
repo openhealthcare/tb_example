@@ -1,0 +1,62 @@
+{% load forms %}
+<div class="form-horizontal">
+  <h3>Contact Details</h3>
+  {% include models.Contact.get_form_template %}
+  {% input label="GPS Map Location" model="something" %}
+
+  <hr />
+  <h3>Connection to the Index Case</h3>
+  {% select label="Place of contact" model="something" lookuplist="['Household', 'prison', 'workplace', 'healthcare facility', 'homeless', 'school']"%}
+  {% input label="Duration of contact" model="something" %}
+  {% checkbox label="Shares the same bed as index case" model="something" %}
+  {% checkbox label="Sleeps in the same room as index" model="something" %}
+  {% checkbox label="Lives in the same household as index" model="something" %}
+  {% checkbox label="Sees the index case daily" model="something" %}
+
+  <hr />
+  <h3>Contact High risk for progression to TB disease?</h3>
+  {% select label="Risk Factors" model="something" lookuplist="['HIV', 'Immunocompromised', '< 5yrs', '> 65 yrs', 'DM', 'immunosuppressant drugs', 'pre-existing lung disease', 'silicosis', 'dialysis', 'smoker', 'low BMI', 'recent TST conversion']" %}
+  {% radio label="Previously treated for TB" model="something" lookuplist="['Yes', 'No']" %}
+  {% radio label="Previously tested for HIV" model="somethign" lookuplist="['Yes', 'No']" %}
+  {% radio label="HIV test result" model="something" lookuplist="['Positive', 'Negative', 'Not tested']" %}
+
+  <hr />
+  <h3>Screening Questions</h3>
+  {% radio label="Symptomatic" model="editing.symptom" lookuplist="['yes', 'no']"%}
+  <div ng-show="editing.symptom === 'yes'">
+    <div ng-repeat="symptom in symptoms">
+      {% radio label="[[ symptom ]]" model="something" lookuplist="['Yes', 'No']" %}
+    </div>
+  </div>
+  {% input label="Duration of Symptoms" model="editing.duration" %}
+  {% checkbox label="Does the contact need to be referred to a clinic" model="clinic" %}
+  {% radio label="Sputum result" model="sputumResult" lookuplist="['Positive', 'Negative', 'Not Done']" %}
+  {% radio label="CXR result" model="cxr_result" lookuplist="['Normal', 'Abnormal', 'Not Done']" %}
+  {% radio label="Igra result" model="igra_result" lookuplist="['Positive', 'Negative', 'Indeterminate', 'Not Done']" %}
+  {% radio label="TST result" model="editing.tst_result" lookuplist="['Positive', 'Negative', 'Indeterminate', 'Not Done']" %}
+
+  <div ng-show="editing.symptom == 'no'">
+    {% checkbox label="Follow up for 2 years?" model="editing.follow" %}
+    {% checkbox label="Guidance on TB Sx and how to seek help given?" model="editing.follow" %}
+    {% checkbox label="BCG offered" model="editing.follow" help_text="(should be offered if no previous BCG and &lt;35 years OR &gt;35 years and lab/health worker)" %}
+  </div>
+  <div ng-show="editing.symptom == 'yes'">
+    {% radio label="Preventative therapy given?" model="editing.preventative" lookuplist="['Yes', 'No']"%}
+    <div ng-show="editing.preventative === 'Yes'">
+      <div ng-repeat="drug in drugs">
+        {% checkbox label="[[ drug ]]" model="asd" %}
+      </div>
+      {% datepicker label="Start date" model="start_date" %}
+      {% datepicker label="End date" model="end_date" %}
+      {% checkbox label="Monitoring bloods done" model="editing.monitoring" %}
+      {% checkbox label="Side effects to drugs?" model="editing.side_effects" %}
+    </div>
+  </div>
+  <div ng-show="editing.preventative === 'No'">
+    {% textarea label="Why was no preventative treatment given?" model="why_no" %}
+  </div>
+  <hr />
+  <h3>Initial visit</h3>
+    {% checkbox label="Personal protective measures ensured" model="editing.protective" %}
+    {% checkbox label="Monitoring period 2 years" model="editing.monitoring" %}
+</div>

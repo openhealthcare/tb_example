@@ -1,0 +1,55 @@
+{% load forms %}
+{% load pathways %}
+<div class="form-horizontal">
+  <div class="row">
+    <div class="col-md-12">
+      {% input label="Index Case Number" model="something" %}
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-md-12">
+      <h3>TB Type</h3>
+      {% radio label="Pulmonary" model="something" lookuplist="['yes', 'no']"%}
+      {% radio label="Laryngeal" model="something" lookuplist="['yes', 'no']"%}
+      {% radio label="Other" model="something" lookuplist="['yes', 'no']"%}
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Symptoms</h3>
+      {% radio label="Cough" model="something" lookuplist="['yes', 'no']"%}
+      {% input label="Symptom duration" model="something" %}
+    </div>
+  </div>
+  <hr />
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Tests</h3>
+      {% radio label="Sputum Smear" model="something" lookuplist="['positive', 'negative']"%}
+      {% radio label="Culture" model="something" lookuplist="['positive', 'negative']"%}
+    </div>
+  </div>
+  <hr />
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Drug Resistances & Sensitivities</h3>
+      <div ng-repeat="drug in drugs">
+          {% radio label="[[ drug ]]" model="something" lookuplist="['Resistant', 'Sensitive', 'Neither', 'Not Known']" %}
+      </div>
+      {% input label="Time To TB Culture Growth (DAYS)" model="something" %}
+      {% input label="Clinic TB Tx at? (code from UK TB registry)" model="something" %}
+      {% input label="Previous TB Treatment (year)" model="something" %}
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Contacts</h3>
+      {% multisave models.Contact %}
+    </div>
+  </div>
+</div>
