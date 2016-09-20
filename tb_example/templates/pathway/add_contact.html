@@ -2,30 +2,30 @@
 <div class="form-horizontal">
   <h3>Contact Details</h3>
   {% include models.Contact.get_form_template %}
-  {% input label="GPS Map Location" model="something1" %}
+  {% input label="GPS Map Location" model="editing.something1" %}
 
   <hr />
   <h3>Connection to the Index Case</h3>
-  {% select label="Place of contact" model="something2" lookuplist="['Household', 'prison', 'workplace', 'healthcare facility', 'homeless', 'school']"%}
-  {% input label="Duration of contact" model="something3" %}
-  {% checkbox label="Shares the same bed as index case" model="something4" %}
-  {% checkbox label="Sleeps in the same room as index" model="something5" %}
-  {% checkbox label="Lives in the same household as index" model="somethingr6" %}
-  {% checkbox label="Sees the index case daily" model="something7" %}
+  {% select label="Place of contact" model="editing.something2" lookuplist="['Household', 'prison', 'workplace', 'healthcare facility', 'homeless', 'school']"%}
+  {% input label="Duration of contact" model="editing.something3" %}
+  {% checkbox label="Shares the same bed as index case" model="editing.something4" %}
+  {% checkbox label="Sleeps in the same room as index" model="editing.something5" %}
+  {% checkbox label="Lives in the same household as index" model="editing.somethingr6" %}
+  {% checkbox label="Sees the index case daily" model="editing.something7" %}
 
   <hr />
   <h3>Contact High risk for progression to TB disease?</h3>
-  {% select label="Risk Factors" model="something8" lookuplist="['HIV', 'Immunocompromised', '< 5yrs', '> 65 yrs', 'DM', 'immunosuppressant drugs', 'pre-existing lung disease', 'silicosis', 'dialysis', 'smoker', 'low BMI', 'recent TST conversion']" %}
-  {% radio label="Previously treated for TB" model="something9" lookuplist="['Yes', 'No']" %}
+  {% select label="Risk Factors" model="editing.something8" lookuplist="['HIV', 'Immunocompromised', '< 5yrs', '> 65 yrs', 'DM', 'immunosuppressant drugs', 'pre-existing lung disease', 'silicosis', 'dialysis', 'smoker', 'low BMI', 'recent TST conversion']" %}
+  {% radio label="Previously treated for TB" model="editing.something9" lookuplist="['Yes', 'No']" %}
   {% radio label="Previously tested for HIV" model="somethign10" lookuplist="['Yes', 'No']" %}
-  {% radio label="HIV test result" model="something11" lookuplist="['Positive', 'Negative', 'Not tested']" %}
+  {% radio label="HIV test result" model="editing.something11" lookuplist="['Positive', 'Negative', 'Not tested']" %}
 
   <hr />
   <h3>Screening Questions</h3>
   {% radio label="Symptomatic" model="editing.symptom" lookuplist="['yes', 'no']"%}
   <div ng-show="editing.symptom === 'yes'">
     <div ng-repeat="symptom in symptoms">
-      {% radio label="[[ symptom ]]" model="something12" lookuplist="['Yes', 'No']" %}
+      {% radio label="[[ symptom ]]" model="editing.something12" lookuplist="['Yes', 'No']" %}
     </div>
   </div>
   {% input label="Duration of Symptoms" model="editing.duration" %}
