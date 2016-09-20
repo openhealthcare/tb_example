@@ -3,24 +3,24 @@
 <div class="form-horizontal">
   <div class="row">
     <div class="col-md-12">
-      {% input label="Index Case Number" model="something1" %}
+      {% input label="Index Case Number" model="editing.something1" %}
     </div>
   </div>
   <hr />
   <div class="row">
     <div class="col-md-12">
       <h3>TB Type</h3>
-      {% radio label="Pulmonary" model="something2" lookuplist="['yes', 'no']"%}
-      {% radio label="Laryngeal" model="something3" lookuplist="['yes', 'no']"%}
-      {% radio label="Other" model="something4" lookuplist="['yes', 'no']"%}
+      {% radio label="Pulmonary" model="editing.something2" lookuplist="['yes', 'no']"%}
+      {% radio label="Laryngeal" model="editing.something3" lookuplist="['yes', 'no']"%}
+      {% radio label="Other" model="editing.something4" lookuplist="['yes', 'no']"%}
     </div>
   </div>
   <hr />
   <div class="row">
     <div class="col-md-12">
       <h3>Symptoms</h3>
-      {% radio label="Cough" model="something5" lookuplist="['yes', 'no']"%}
-      {% input label="Symptom duration" model="something6" %}
+      {% radio label="Cough" model="editing.something5" lookuplist="['yes', 'no']"%}
+      {% input label="Symptom duration" model="editing.something6" %}
     </div>
   </div>
   <hr />
@@ -28,8 +28,8 @@
   <div class="row">
     <div class="col-md-12">
       <h3>Tests</h3>
-      {% radio label="Sputum Smear" model="something7" lookuplist="['positive', 'negative']"%}
-      {% radio label="Culture" model="something8" lookuplist="['positive', 'negative']"%}
+      {% radio label="Sputum Smear" model="editing.something7" lookuplist="['positive', 'negative']"%}
+      {% radio label="Culture" model="editing.something8" lookuplist="['positive', 'negative']"%}
     </div>
   </div>
   <hr />
@@ -38,11 +38,11 @@
     <div class="col-md-12">
       <h3>Drug Resistances & Sensitivities</h3>
       <div ng-repeat="drug in drugs">
-          {% radio label="[[ drug ]]" model="something9" lookuplist="['Resistant', 'Sensitive', 'Neither', 'Not Known']" %}
+          {% radio label="[[ drug ]]" model="editing[drug]" lookuplist="['Resistant', 'Sensitive', 'Neither', 'Not Known']" %}
       </div>
-      {% input label="Time To TB Culture Growth (DAYS)" model="something10" %}
-      {% input label="Clinic TB Tx at? (code from UK TB registry)" model="something11" %}
-      {% input label="Previous TB Treatment (year)" model="something12" %}
+      {% input label="Time To TB Culture Growth (DAYS)" model="editing.something10" %}
+      {% input label="Clinic TB Tx at? (code from UK TB registry)" model="editing.something11" %}
+      {% input label="Previous TB Treatment (year)" model="editing.something12" %}
     </div>
   </div>
   <hr />

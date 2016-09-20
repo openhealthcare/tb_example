@@ -17,7 +17,7 @@
   <h3>Contact High risk for progression to TB disease?</h3>
   {% select label="Risk Factors" model="editing.something8" lookuplist="['HIV', 'Immunocompromised', '< 5yrs', '> 65 yrs', 'DM', 'immunosuppressant drugs', 'pre-existing lung disease', 'silicosis', 'dialysis', 'smoker', 'low BMI', 'recent TST conversion']" %}
   {% radio label="Previously treated for TB" model="editing.something9" lookuplist="['Yes', 'No']" %}
-  {% radio label="Previously tested for HIV" model="somethign10" lookuplist="['Yes', 'No']" %}
+  {% radio label="Previously tested for HIV" model="editing.something10" lookuplist="['Yes', 'No']" %}
   {% radio label="HIV test result" model="editing.something11" lookuplist="['Positive', 'Negative', 'Not tested']" %}
 
   <hr />
@@ -25,14 +25,14 @@
   {% radio label="Symptomatic" model="editing.symptom" lookuplist="['yes', 'no']"%}
   <div ng-show="editing.symptom === 'yes'">
     <div ng-repeat="symptom in symptoms">
-      {% radio label="[[ symptom ]]" model="editing.something12" lookuplist="['Yes', 'No']" %}
+      {% radio label="[[ symptom ]]" model="editing[symptom]" lookuplist="['Yes', 'No']" %}
     </div>
   </div>
   {% input label="Duration of Symptoms" model="editing.duration" %}
   {% checkbox label="Does the contact need to be referred to a clinic" model="clinic" %}
-  {% radio label="Sputum result" model="sputumResult" lookuplist="['Positive', 'Negative', 'Not Done']" %}
-  {% radio label="CXR result" model="cxr_result" lookuplist="['Normal', 'Abnormal', 'Not Done']" %}
-  {% radio label="Igra result" model="igra_result" lookuplist="['Positive', 'Negative', 'Indeterminate', 'Not Done']" %}
+  {% radio label="Sputum result" model="editing.sputumResult" lookuplist="['Positive', 'Negative', 'Not Done']" %}
+  {% radio label="CXR result" model="editing.cxr_result" lookuplist="['Normal', 'Abnormal', 'Not Done']" %}
+  {% radio label="Igra result" model="editing.igra_result" lookuplist="['Positive', 'Negative', 'Indeterminate', 'Not Done']" %}
   {% radio label="TST result" model="editing.tst_result" lookuplist="['Positive', 'Negative', 'Indeterminate', 'Not Done']" %}
 
   <div ng-show="editing.symptom == 'no'">
